@@ -8,6 +8,7 @@ loadEnv();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || "0.0.0.0";
 
 // Middleware
 app.use(express.json());
@@ -16,4 +17,4 @@ app.use(express.json());
 app.use("/deploy", deployRoutes);
 
 // Start Server
-app.listen(PORT, () => console.log(`API running on port ${PORT}`));
+app.listen(PORT, HOST, () => console.log(`API running on port ${PORT}`));
